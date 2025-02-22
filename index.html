@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aviator Predictor</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #prediction {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aviator Prediction Tool</h1>
+    <p>Enter the number of rounds to predict:</p>
+    <input type="number" id="numRounds" value="10">
+    <button onclick="predictRounds()">Predict</button>
+    <div id="prediction"></div>
+
+    <script>
+        function predictRounds() {
+            let numRounds = document.getElementById("numRounds").value;
+            let predictions = [];
+            
+            // Replace this loop with your actual prediction logic
+            for (let i = 0; i < numRounds; i++) {
+                let prediction = Math.random() * 100; // Generate a random prediction
+                predictions.push(prediction); 
+            }
+            
+            let predictionText = "";
+            predictions.forEach(pred => {
+                predictionText += "<p>Round " + (predictions.indexOf(pred) + 1) + ": " + pred.toFixed(2) + "</p>";
+            });
+            
+            document.getElementById("prediction").innerHTML = predictionText;
+        }
+    </script>
+</body>
+</html>
